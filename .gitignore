@@ -1,0 +1,11 @@
+/backend/vendor/
+/backend/node_modules/
+/backend/.env
+/backend/.env.*
+/backend/storage/
+/backend/bootstrap/cache/
+/backend/database/database.sqlite
+
+.DS_Store
+.vscode/
+.idea/

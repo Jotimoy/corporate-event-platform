@@ -1,23 +1,23 @@
 FROM php:8.4-cli
 
-# System dependencies
+# System deps
 RUN apt-get update && apt-get install -y \
     git unzip libpq-dev \
     && docker-php-ext-install pdo pdo_pgsql
 
-# Set working directory
+# Set workdir
 WORKDIR /app
 
-# Copy backend source
-COPY backend/ .
+# Copy backend source into container
+COPY backend /app
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Install PHP dependencies
+# Install PHP deps
 RUN composer install --no-dev --optimize-autoloader
 
-# Expose Railway port
+# Expose port
 EXPOSE 8080
 
 # Start Laravel
